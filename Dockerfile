@@ -1,34 +1,35 @@
-# Use Node.js 20 Alpine for a small image size
+# Use Node.js 20 Alpine
 FROM node:20-alpine
+
+# --- CRITICAL FIX: Install OpenSSL for Prisma ---
+RUN apk add --no-cache openssl
 
 # Set working directory
 WORKDIR /app
 
-# Copy package files first to leverage cache
+# 1. Copy package files
 COPY package.json package-lock.json ./
 
-# Install dependencies
-# Using npm ci for reliable builds
+# 2. Copy the Prisma folder
+COPY prisma ./prisma
+
+# 3. Install dependencies
 RUN npm ci
 
-# Copy the rest of the application code
+# 4. Copy the rest of the application code
 COPY . .
 
-# Generate Prisma Client
-# This is necessary because 'npm ci' doesn't run postinstall hooks if not configured,
-# and we want to ensure the client is generated before build.
+# Set DB URL for build
+ENV DATABASE_URL="file:./dev.db"
+
+# 5. Generate Prisma Client
 RUN npx prisma generate
 
-# Build the Next.js application
-# This runs `prisma generate && prisma db push && next build` as defined in package.json
-# Note: The 'prisma db push' here creates a temporary DB inside the image which allows static generation to succeed.
-# At runtime, we might mount a volume which hides this DB, so we re-run push in CMD.
+# 6. Build the application
 RUN npm run build
 
-# Expose the application port
+# Expose port
 EXPOSE 3000
 
 # Start command
-# We run 'prisma db push' to ensure the runtime database (which might be a volume) matches the schema.
-# Then we start the application.
 CMD ["sh", "-c", "npx prisma db push && npm start"]
