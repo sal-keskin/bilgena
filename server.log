@@ -1,10 +1,46 @@
 
-> safety-app@0.1.0 start
-> next start
+> safety-app@0.1.0 dev
+> next dev
 
    ▲ Next.js 15.5.9
    - Local:        http://localhost:3000
    - Network:      http://192.168.0.2:3000
 
  ✓ Starting...
- ✓ Ready in 2.6s
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 2.2s
+ ○ Compiling / ...
+ ✓ Compiled / in 8.5s (644 modules)
+ GET / 200 in 10122ms
+ ✓ Compiled in 270ms (237 modules)
+ ✓ Compiled /setup in 436ms (623 modules)
+ GET /setup 200 in 751ms
+ GET /setup 200 in 49ms
+ ✓ Compiled in 369ms (237 modules)
+ GET / 200 in 393ms
+ ○ Compiling /editor/[courseId] ...
+ ✓ Compiled /editor/[courseId] in 1776ms (741 modules)
+ GET /editor/952138ef-c234-4214-9a5b-69fdbddda2b0 200 in 3707ms
+ POST / 303 in 3788ms
+ GET /editor/952138ef-c234-4214-9a5b-69fdbddda2b0 200 in 129ms
+ ✓ Compiled in 265ms (287 modules)
+ GET /editor/952138ef-c234-4214-9a5b-69fdbddda2b0 200 in 59ms
+ ✓ Compiled in 231ms (287 modules)
+ GET / 200 in 354ms
+ ✓ Compiled in 185ms (287 modules)
+ GET /setup 200 in 122ms
+ GET /setup 200 in 47ms
+ ✓ Compiled in 270ms (287 modules)
+ GET / 200 in 286ms
+ ✓ Compiled in 221ms (287 modules)
+ GET /editor/1c29fda0-8ef9-4aae-b85e-f81791d839ab 200 in 235ms
+ POST / 303 in 293ms
+ GET /editor/1c29fda0-8ef9-4aae-b85e-f81791d839ab 200 in 68ms
+ ✓ Compiled in 181ms (287 modules)
+ GET /editor/1c29fda0-8ef9-4aae-b85e-f81791d839ab 200 in 48ms
+ ✓ Compiled in 133ms (287 modules)
+ ✓ Compiled in 579ms (739 modules)

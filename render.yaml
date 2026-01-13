@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: safety-app
+    env: node
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        value: file:./dev.db
+      - key: NODE_VERSION
+        value: 20.11.0
