@@ -7,6 +7,7 @@ import { PlusCircle, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 
 export default async function DashboardPage() {
+  console.log("Rendering SafetyApp DashboardPage"); // Tracer bullet for Vercel logs
   const courses = await getCourses();
 
   return (
