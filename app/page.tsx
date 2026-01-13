@@ -6,14 +6,14 @@ import { Label } from '@/components/ui/label';
 import { PlusCircle, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 
-export default async function Dashboard() {
+export default async function DashboardPage() {
   const courses = await getCourses();
 
   return (
     <div className="container mx-auto py-10 px-4">
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-4xl font-bold tracking-tight">SafetyApp Authoring</h1>
+          <h1 className="text-4xl font-bold tracking-tight">SafetyApp Dashboard</h1>
           <p className="text-muted-foreground mt-2">Create and manage your mobile-first training courses.</p>
         </div>
       </div>
