@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      # Use a file path inside the volume
+      - DATABASE_URL=file:/app/prisma/dev.db
+    volumes:
+      # Mount the prisma directory to persist the database file
+      # This allows 'dev.db' to persist on your Mac between restarts
+      - ./prisma:/app/prisma
+      # Mount public directory if you want to see uploads immediately (optional)
+      # - ./public:/app/public
+    restart: unless-stopped
