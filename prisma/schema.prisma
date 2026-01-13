@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
+  url      = env("DATABASE_URL")
 }
 
 model User {
@@ -18,8 +19,8 @@ model Course {
   id             String   @id @default(uuid())
   title          String
   description    String?
-  content        Json
-  branding       Json?
+  content        String
+  branding       String?
   isPublished    Boolean  @default(false)
   scormVersion   String   @default("1.2")
   creatorId      String
